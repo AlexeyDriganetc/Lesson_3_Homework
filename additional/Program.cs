@@ -4,17 +4,31 @@
         array[i] = new Random().Next(1, 11); // [0; 11]
 }
 
-int Shift(int[] array)
+int Shiftpositive(int[] array)
 {
     int buffer = array[0];
 
     for (int m = 0; m < array.Length - 1; m++)
     {
-    array[m] = array[m+1];
+        array[m] = array[m+1];
     }
 
     array[array.Length-1] = buffer;
-   
+
+    return array;
+}
+
+int Shiftnegative(int[] array)
+{
+    int buffer = array[0];
+
+    for (int m = 0; m < array.Length - 1; m++)
+    {
+        array[m] = array[m+1];
+    }
+
+    array[array.Length-1] = buffer;
+
     return array;
 }
 
@@ -33,12 +47,23 @@ Console.WriteLine($"Начальный массив: [{string.Join(", ", array)}
 
 Console.Write("Введите шаг сдвига\nЧисло K: ");
 int k = int.Parse(Console.ReadLine()!);
-while (k < -100000 || k > 100000) 
+while (k < -100000 || k > 100000 || k == 0) 
 {
-    Console.Write("Вы ошиблись!\nЧисло должно до 100 000 по модулю: ");
+    Console.Write("Вы ошиблись!\nЧисло должно до 100 000 по модулю и не равно 0: ");
     k = int.Parse(Console.ReadLine()!);
 }
 
-Console.WriteLine(Shift(array));
+if (k > 0)
+for (int l = 1; l <= k; l++)
+{
+Shiftpositive(array);
+}
+Console.WriteLine($"Сдвинутый массив: [{string.Join(", ", Shiftpositive(array))}]");
 
-Console.WriteLine($"Сдвинутый массив: [{string.Join(", ", array)}]");
+if (k < 0)
+for (int h = -1; h >= k; h--)
+{
+Shiftnegative(array);
+}
+Console.WriteLine($"Сдвинутый массив: [{string.Join(", ", Shiftnegative(array))}]");
+
