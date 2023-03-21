@@ -1,4 +1,15 @@
-﻿void InputArray(int[] array)
+﻿// Дана последовательность из N целых чисел и число K. 
+// Необходимо сдвинуть всю последовательность (сдвиг - циклический) 
+// на |K| элементов вправо, если K – положительное и влево, 
+// если отрицательное.
+
+// 5 3 7 4 6  (шаг на +3) (Пример не правильный.)
+// 7 4 6 5 3
+
+// 5 3 7 4 6  (шаг на -3)
+// 4 6 5 3 7
+
+void InputArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
         array[i] = new Random().Next(1, 11); // [0; 11]
@@ -6,14 +17,15 @@
 
 void Shiftpositive(int[] array)
 {
-    int buffer = array[0];
 
-    for (int m = 0; m < array.Length - 1; m++)
+    int buffer = array[array.Length-1];
+
+    for (int m = array.Length - 1; m > 0; m--)
     {
-        array[m] = array[m+1];
+        array[m] = array[m-1];
     }
 
-    array[array.Length-1] = buffer;
+    array[0] = buffer;
 }
 
 void Shiftnegative(int[] array)
