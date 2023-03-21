@@ -4,7 +4,7 @@
         array[i] = new Random().Next(1, 11); // [0; 11]
 }
 
-int Shiftpositive(int[] array)
+void Shiftpositive(int[] array)
 {
     int buffer = array[0];
 
@@ -14,11 +14,9 @@ int Shiftpositive(int[] array)
     }
 
     array[array.Length-1] = buffer;
-
-    return array;
 }
 
-int Shiftnegative(int[] array)
+void Shiftnegative(int[] array)
 {
     int buffer = array[0];
 
@@ -28,8 +26,6 @@ int Shiftnegative(int[] array)
     }
 
     array[array.Length-1] = buffer;
-
-    return array;
 }
 
 Console.Clear();
@@ -58,12 +54,11 @@ for (int l = 1; l <= k; l++)
 {
 Shiftpositive(array);
 }
-Console.WriteLine($"Сдвинутый массив: [{string.Join(", ", Shiftpositive(array))}]");
 
 if (k < 0)
 for (int h = -1; h >= k; h--)
 {
 Shiftnegative(array);
 }
-Console.WriteLine($"Сдвинутый массив: [{string.Join(", ", Shiftnegative(array))}]");
+Console.WriteLine($"Сдвинутый массив: [{string.Join(", ", (array))}]");
 
