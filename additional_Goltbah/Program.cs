@@ -41,26 +41,28 @@ while (n % 2 > 0)
     n = int.Parse(Console.ReadLine()!);
 }
 
-while (n < 4 || n > 998) 
+while (n < 6 || n > 998) 
 {
-    Console.Write("Вы ошиблись!\nЧисло должно от 4 до 998: ");
+    Console.Write("Вы ошиблись!\nЧисло должно от 6 до 998: ");
     n = int.Parse(Console.ReadLine()!);
 }
 
 int y = 0;
 
-for (int x = 4; x + y <= n; x = x + 2)
+for (int x = 3; x + y <= n; x += 2)
 {
 int i = 2;
 while (x % i != 0)
 i++; 
    if (i == x)
-   {
-    y = n - x;}
+    {
+    y = n - x;
+    }
+    // else break;
 
 int m = 2;
 while (y % m != 0)
-i++; 
+m++; 
 if (m == y)
 Console.WriteLine($"{n} = {x} + {y}");
 }
