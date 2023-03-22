@@ -48,24 +48,26 @@ while (n < 6 || n > 998)
 }
 
 int y = 0;
-
+// int x = 3;
 for (int x = 3; x + y <= n; x += 2)
 {
-int i = 2;
-while (x % i != 0)
-i++; 
-   if (i == x)
-    {
-    y = n - x;
-    }
-    // else break;
+// while (x + y <= n)
+  int i = 2;
+  while (x % i != 0)
+     i++; 
+         if (i == x)
+             y = n - x;
+             int m = 2;
+                 while (y % m != 0)
+                     m++; 
+                         if (m == y)
+                             Console.WriteLine($"{n} = {x} + {y}");
+                         else x += 2;
 
-int m = 2;
-while (y % m != 0)
-m++; 
-if (m == y)
-Console.WriteLine($"{n} = {x} + {y}");
+
+
 }
+
 
 
 
