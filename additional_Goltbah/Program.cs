@@ -14,23 +14,19 @@
 // 6	3 3
 // 992	73 919
 
-// void Goldbach(ref int x, ref int y)
-// {
-//     x = x + 10;
-// }
-
-
-// Console.Clear();
-// int n = 5;
-// f(ref n);
-// Console.WriteLine(n);
-
-
-// for (int i = 2; i < x; i++)
-// if ( x % i == 0)
-//     return false;
-//return true;
-
+void Goldbach(ref int x, ref int y, ref int n )
+{
+  int i = 2;
+  while (x % i != 0)
+     i++; 
+         if (i == x)
+             y = n - x;
+             int m = 2;
+                 while (y % m != 0)
+                     m++; 
+                         if (m == y)
+                             Console.WriteLine($"{n} = {x} + {y}");
+}
 
 Console.Clear();
 Console.Write("Введите чётное число: ");
@@ -46,31 +42,12 @@ while (n < 6 || n > 998)
     Console.Write("Вы ошиблись!\nЧисло должно от 6 до 998: ");
     n = int.Parse(Console.ReadLine()!);
 }
-
+int x = 3;
 int y = 0;
-// int x = 3;
-for (int x = 3; x + y <= n; x += 2)
+while (x + y <= n)
 {
-// while (x + y <= n)
-  int i = 2;
-  while (x % i != 0)
-     i++; 
-         if (i == x)
-             y = n - x;
-             int m = 2;
-                 while (y % m != 0)
-                     m++; 
-                         if (m == y)
-                             Console.WriteLine($"{n} = {x} + {y}");
-                         else x += 2;
-
-
-
+Goldbach (ref x, ref y, ref n);
+x += 2;
 }
-
-
-
-
-
 
 
