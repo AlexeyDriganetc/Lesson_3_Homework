@@ -5,21 +5,27 @@
 // [-4, -6, 89, 6] -> 0
 
 
-void InputArray(int[] array)
+void InputArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
-        array[i] = new Random().Next(10, 101); // [10, 100]
+        array[i] = Math.Round(new Random().NextDouble() * (100 - 10) + 10, 0); // [10, 100]
 }
 
 Console.Clear();
-int sumOddPositions = 0;
+
 Console.Write("Введите кол-во элементов в массиве: ");
 int n = int.Parse(Console.ReadLine()!);
-int[] array = new int[n];
+Double[] array = new double[n];
+
+double sumOddPositions = 0;
 InputArray(array);
 Console.WriteLine($"Начальный массив: [{string.Join(", ", array)}]");
 
-    for (int i = 0; i < array.Length; i = i+2)
+// int[] array = {3, 7, 23, 12};  Проверка примера
+// int[] array = {-4, -6, 89, 6}; 
+// int sumOddPositions = 0;
+
+    for (int i = 1; i < array.Length; i = i+2)
      sumOddPositions += array[i];
 
     Console.Write($"Сумма нечётных позиций: {sumOddPositions}");
